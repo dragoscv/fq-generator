@@ -7,7 +7,7 @@ A comprehensive Next.js web application for professional audio frequency testing
 ## 🎯 Core Objectives
 
 - **Precision Audio Generation**: Generate exact frequencies with multiple waveform types
-- **Professional Testing Tools**: Comprehensive suite for speaker and room acoustics testing  
+- **Professional Testing Tools**: Comprehensive suite for speaker and room acoustics testing
 - **Real-time Analysis**: Live spectrum analysis and measurement capabilities
 - **Safety First**: Built-in safeguards to protect equipment and hearing
 - **Modern Web Technology**: Leveraging latest Next.js, TypeScript, and Web Audio API
@@ -15,6 +15,7 @@ A comprehensive Next.js web application for professional audio frequency testing
 ## 🚀 Key Features
 
 ### 🎛️ Tone Generation Engine
+
 - **Frequency Range**: 0.1Hz to 25kHz (beyond human hearing range)
 - **Waveform Types**: Sine, Square, Triangle, Sawtooth, White Noise, Pink Noise
 - **Precision Control**: Fine-tuned frequency adjustment with Hz/cents precision
@@ -22,6 +23,7 @@ A comprehensive Next.js web application for professional audio frequency testing
 - **Harmonic Generation**: Fundamental + harmonic frequency generation
 
 ### 📊 Advanced Testing Suite
+
 - **Frequency Sweep**: Linear and logarithmic sweep with custom duration
 - **Stereo Testing**: Left/right channel isolation and balance testing
 - **Phase Analysis**: Phase correlation and stereo imaging tests
@@ -30,6 +32,7 @@ A comprehensive Next.js web application for professional audio frequency testing
 - **THD Measurement**: Total Harmonic Distortion analysis
 
 ### 🔬 Professional Analysis Tools
+
 - **Real-time Spectrum Analyzer**: FFT-based frequency domain visualization
 - **1/3 Octave Band Analysis**: Professional acoustic measurement standard
 - **Level Monitoring**: Peak, RMS, and crest factor measurements
@@ -38,6 +41,7 @@ A comprehensive Next.js web application for professional audio frequency testing
 - **Impulse Response**: System response characterization
 
 ### 🛡️ Safety & User Experience
+
 - **Volume Limiting**: Automatic gain limiting to prevent damage
 - **Progressive Volume**: Gradual volume increases for safety
 - **Emergency Stop**: One-click immediate audio cessation
@@ -47,6 +51,7 @@ A comprehensive Next.js web application for professional audio frequency testing
 ## 🏗️ Technical Architecture
 
 ### **Technology Stack**
+
 ```yaml
 Frontend Framework: Next.js 15 (App Router)
 Language: TypeScript (strict mode)
@@ -59,6 +64,7 @@ Testing: Vitest + Playwright
 ```
 
 ### **Core Dependencies**
+
 ```json
 {
   "next": "^15.0.0",
@@ -75,6 +81,7 @@ Testing: Vitest + Playwright
 ```
 
 ### **Project Structure**
+
 ```
 src/
 ├── app/                          # Next.js App Router
@@ -135,6 +142,7 @@ src/
 ## 🎨 User Interface Design
 
 ### **Design Principles**
+
 - **Professional Aesthetics**: Clean, technical interface suitable for studio environments
 - **Dark Mode Primary**: Reduces eye strain in dimly lit studios
 - **Touch-Friendly**: Large controls optimized for mobile/tablet use
@@ -144,6 +152,7 @@ src/
 ### **Key UI Components**
 
 #### **Dashboard Layout**
+
 ```
 ┌─────────────────────────────────────────────────────┐
 │ 🎵 FQ-Generator          [🔊] [⚙️] [❓] [🌙]        │
@@ -166,6 +175,7 @@ src/
 ```
 
 #### **Mobile Responsive Design**
+
 - Collapsible navigation
 - Swipe-friendly tab interface
 - Large touch targets (44px minimum)
@@ -175,9 +185,11 @@ src/
 ## 🔧 Implementation Phases
 
 ### **Phase 1: Foundation (Week 1-2)**
+
 **Goal**: Establish core infrastructure and basic functionality
 
 **Tasks**:
+
 - ✅ Setup Next.js 15 with TypeScript and Tailwind CSS
 - ✅ Configure Web Audio API integration
 - ✅ Implement basic tone generator (1Hz-25kHz range)
@@ -187,14 +199,17 @@ src/
 - ✅ Basic UI layout with navigation
 
 **Deliverables**:
+
 - Working tone generator with frequency control
 - Basic safety systems
 - Responsive UI foundation
 
 ### **Phase 2: Core Testing Tools (Week 3-4)**
+
 **Goal**: Add essential audio testing capabilities
 
 **Tasks**:
+
 - ✅ Frequency sweep implementation (linear/logarithmic)
 - ✅ Stereo channel testing and balance controls
 - ✅ White and pink noise generators
@@ -203,14 +218,17 @@ src/
 - ✅ Enhanced safety warnings and limits
 
 **Deliverables**:
+
 - Complete basic testing suite
 - Real-time audio analysis
 - Professional measurement displays
 
 ### **Phase 3: Advanced Features (Week 5-6)**
+
 **Goal**: Implement professional-grade analysis tools
 
 **Tasks**:
+
 - ✅ THD (Total Harmonic Distortion) measurement
 - ✅ 1/3 octave band analysis
 - ✅ Room acoustics testing tools
@@ -219,14 +237,17 @@ src/
 - ✅ Signal-to-noise ratio measurement
 
 **Deliverables**:
+
 - Professional measurement suite
 - Advanced acoustic analysis
 - Comprehensive testing capabilities
 
 ### **Phase 4: Polish & Export (Week 7-8)**
+
 **Goal**: Finalize UI/UX and add data export capabilities
 
 **Tasks**:
+
 - ✅ Export functionality (CSV, PDF reports)
 - ✅ Test preset configurations
 - ✅ Session recording (WAV export)
@@ -236,6 +257,7 @@ src/
 - ✅ PWA implementation
 
 **Deliverables**:
+
 - Complete professional application
 - Export and reporting capabilities
 - Offline functionality
@@ -243,58 +265,61 @@ src/
 ## 📊 Feature Specifications
 
 ### **Frequency Generation**
+
 ```typescript
 interface FrequencyGenerator {
   range: {
-    min: 0.1;        // Hz
-    max: 25000;      // Hz (beyond human hearing)
+    min: 0.1; // Hz
+    max: 25000; // Hz (beyond human hearing)
   };
-  precision: 0.01;   // Hz precision
-  waveforms: ['sine', 'square', 'triangle', 'sawtooth', 'white', 'pink'];
+  precision: 0.01; // Hz precision
+  waveforms: ["sine", "square", "triangle", "sawtooth", "white", "pink"];
   harmonics: {
-    count: 10;       // Harmonic overtones
-    amplitude: 0.1;  // Relative amplitude
+    count: 10; // Harmonic overtones
+    amplitude: 0.1; // Relative amplitude
   };
 }
 ```
 
 ### **Safety Systems**
+
 ```typescript
 interface SafetySystems {
   volumeLimits: {
-    startup: 0.1;      // 10% max on startup
-    maximum: 0.8;      // 80% absolute maximum
-    warning: 0.6;      // Warning threshold
+    startup: 0.1; // 10% max on startup
+    maximum: 0.8; // 80% absolute maximum
+    warning: 0.6; // Warning threshold
   };
   progressiveIncrease: {
-    step: 0.05;        // 5% volume steps
-    delay: 200;        // ms between steps
+    step: 0.05; // 5% volume steps
+    delay: 200; // ms between steps
   };
   emergencyStop: {
-    fadeTime: 50;      // ms to zero volume
-    resetDelay: 1000;  // ms before restart allowed
+    fadeTime: 50; // ms to zero volume
+    resetDelay: 1000; // ms before restart allowed
   };
 }
 ```
 
 ### **Analysis Capabilities**
+
 ```typescript
 interface AnalysisTools {
   fft: {
-    size: 2048;        // FFT size
-    overlap: 0.5;      // Window overlap
-    window: 'hann';    // Window function
+    size: 2048; // FFT size
+    overlap: 0.5; // Window overlap
+    window: "hann"; // Window function
   };
   measurements: {
-    thd: 'total_harmonic_distortion';
-    snr: 'signal_to_noise_ratio';
-    crest: 'crest_factor';
-    rt60: 'reverberation_time';
+    thd: "total_harmonic_distortion";
+    snr: "signal_to_noise_ratio";
+    crest: "crest_factor";
+    rt60: "reverberation_time";
   };
   visualization: {
-    updateRate: 60;    // fps
-    freqRange: [20, 20000];  // Hz
-    dbRange: [-60, 0];       // dB
+    updateRate: 60; // fps
+    freqRange: [20, 20000]; // Hz
+    dbRange: [-60, 0]; // dB
   };
 }
 ```
@@ -302,6 +327,7 @@ interface AnalysisTools {
 ## 🎵 Professional Use Cases
 
 ### **Speaker Testing**
+
 - **Driver Testing**: Individual woofer, midrange, tweeter analysis
 - **Crossover Verification**: Multi-way speaker integration testing
 - **Impedance Curves**: Frequency-dependent impedance measurement
@@ -309,6 +335,7 @@ interface AnalysisTools {
 - **Phase Response**: Driver alignment and crossover phase issues
 
 ### **Room Acoustics**
+
 - **Standing Waves**: Room mode identification and measurement
 - **RT60 Measurement**: Reverberation time analysis
 - **Frequency Response**: Room's effect on speaker output
@@ -316,6 +343,7 @@ interface AnalysisTools {
 - **Treatment Verification**: Acoustic treatment effectiveness
 
 ### **Quality Control**
+
 - **Production Testing**: Consistent speaker manufacturing verification
 - **Batch Testing**: Quality assurance for speaker batches
 - **Calibration**: Reference speaker and microphone calibration
@@ -325,6 +353,7 @@ interface AnalysisTools {
 ## 🔒 Safety Considerations
 
 ### **Hearing Protection**
+
 - Volume never exceeds safe listening levels by default
 - Progressive volume increases with user confirmation
 - Automatic timeout for high-level testing
@@ -332,6 +361,7 @@ interface AnalysisTools {
 - Recommended listening duration limits
 
 ### **Equipment Protection**
+
 - Soft-start/soft-stop for all audio signals
 - DC blocking to prevent driver damage
 - Overload protection with automatic limiting
@@ -339,6 +369,7 @@ interface AnalysisTools {
 - Emergency stop with immediate audio cessation
 
 ### **User Guidance**
+
 - Clear instructions for safe operation
 - Warnings about hearing damage risks
 - Recommended testing procedures
@@ -348,6 +379,7 @@ interface AnalysisTools {
 ## 📈 Performance Requirements
 
 ### **Audio Performance**
+
 - **Latency**: <20ms for real-time operations
 - **Frequency Accuracy**: ±0.01Hz precision
 - **Dynamic Range**: >96dB (24-bit audio)
@@ -355,6 +387,7 @@ interface AnalysisTools {
 - **Sample Rate**: 48kHz minimum, 96kHz preferred
 
 ### **Application Performance**
+
 - **Load Time**: <3s on modern browsers
 - **UI Responsiveness**: <16ms frame time (60fps)
 - **Memory Usage**: <100MB for typical operation
@@ -364,17 +397,20 @@ interface AnalysisTools {
 ## 📱 Platform Support
 
 ### **Desktop Browsers**
+
 - ✅ Chrome 90+ (primary target)
 - ✅ Firefox 85+ (full support)
 - ✅ Safari 14+ (WebKit support)
 - ✅ Edge 90+ (Chromium-based)
 
 ### **Mobile Browsers**
+
 - ✅ iOS Safari 14+ (optimized touch controls)
 - ✅ Android Chrome 90+ (full feature support)
 - ⚠️ Mobile Firefox (limited Web Audio API support)
 
 ### **PWA Features**
+
 - Offline functionality for basic operations
 - Add to home screen capability
 - Background audio processing where supported
@@ -383,12 +419,14 @@ interface AnalysisTools {
 ## 🚀 Deployment & Distribution
 
 ### **Hosting**
+
 - **Primary**: Vercel (optimized for Next.js)
 - **CDN**: Global edge distribution for low latency
 - **Domain**: Custom domain with SSL certificate
 - **Analytics**: Privacy-focused usage analytics
 
 ### **Performance Optimization**
+
 - Code splitting for optimal loading
 - Image optimization with next/image
 - Dynamic imports for audio processing
@@ -398,6 +436,7 @@ interface AnalysisTools {
 ## 🎯 Success Metrics
 
 ### **Technical Metrics**
+
 - **Accuracy**: Frequency generation within ±0.01Hz
 - **Stability**: 99.9% uptime for core functionality
 - **Performance**: <3s load time, <20ms audio latency
@@ -405,6 +444,7 @@ interface AnalysisTools {
 - **Reliability**: Zero audio glitches during normal operation
 
 ### **User Experience Metrics**
+
 - **Ease of Use**: Intuitive interface requiring minimal training
 - **Mobile Experience**: Full functionality on mobile devices
 - **Accessibility**: WCAG 2.1 AA compliance
@@ -414,6 +454,7 @@ interface AnalysisTools {
 ## 🔮 Future Enhancements
 
 ### **Advanced Features (Phase 5+)**
+
 - **Multi-channel Testing**: Surround sound and immersive audio
 - **Microphone Integration**: Real-time measurement with calibrated mics
 - **AI-Powered Analysis**: Intelligent acoustic analysis and recommendations
@@ -421,6 +462,7 @@ interface AnalysisTools {
 - **Collaboration Tools**: Share tests and results with team members
 
 ### **Platform Extensions**
+
 - **Desktop Application**: Electron-based standalone version
 - **Mobile Apps**: Native iOS/Android applications
 - **Hardware Integration**: USB audio interface support
@@ -430,6 +472,7 @@ interface AnalysisTools {
 ## 📚 Documentation Plan
 
 ### **User Documentation**
+
 - **Quick Start Guide**: Get testing in 5 minutes
 - **Professional Manual**: Comprehensive testing procedures
 - **Safety Guidelines**: Hearing and equipment protection
@@ -437,6 +480,7 @@ interface AnalysisTools {
 - **Video Tutorials**: Visual learning for complex features
 
 ### **Developer Documentation**
+
 - **API Reference**: Complete code documentation
 - **Architecture Guide**: System design and components
 - **Contributing Guide**: Community contribution guidelines
@@ -457,6 +501,6 @@ The phased development approach ensures steady progress while maintaining qualit
 
 ---
 
-*Generated: August 3, 2025*
-*Status: Ready for Implementation*
-*Next Step: Begin Phase 1 development*
+_Generated: August 3, 2025_
+_Status: Ready for Implementation_
+_Next Step: Begin Phase 1 development_

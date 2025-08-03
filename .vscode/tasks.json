@@ -326,7 +326,10 @@
       "label": "audio: Debug Audio System",
       "type": "shell",
       "command": "node",
-      "args": ["-e", "console.log('🎵 Audio System Debug'); const fs = require('fs'); if(fs.existsSync('./test-audio.html')) { console.log('✅ test-audio.html exists'); console.log('Open file:///' + __dirname.replace(/\\\\/g, '/') + '/test-audio.html in browser'); } else { console.log('❌ test-audio.html not found'); }"],
+      "args": [
+        "-e",
+        "console.log('🎵 Audio System Debug'); const fs = require('fs'); if(fs.existsSync('./test-audio.html')) { console.log('✅ test-audio.html exists'); console.log('Open file:///' + __dirname.replace(/\\\\/g, '/') + '/test-audio.html in browser'); } else { console.log('❌ test-audio.html not found'); }"
+      ],
       "group": "test",
       "presentation": {
         "echo": true,

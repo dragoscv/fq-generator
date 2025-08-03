@@ -1,24 +1,24 @@
-import { vi } from 'vitest'
+import { vi } from "vitest";
 
 // Mock for Tone.js
 const ToneMock = {
   start: vi.fn().mockResolvedValue(undefined),
   getContext: vi.fn(() => ({
-    state: 'running',
+    state: "running",
     rawContext: {
       createOscillator: vi.fn(),
       createGain: vi.fn(),
       createAnalyser: vi.fn(),
       destination: {},
       sampleRate: 44100,
-    }
+    },
   })),
   getTransport: vi.fn(() => ({
     stop: vi.fn(),
   })),
   Oscillator: vi.fn().mockImplementation(() => ({
     frequency: { value: 440 },
-    type: 'sine',
+    type: "sine",
     connect: vi.fn(),
     start: vi.fn(),
     stop: vi.fn(),
@@ -36,6 +36,6 @@ const ToneMock = {
   Analyser: vi.fn().mockImplementation(() => ({
     getValue: vi.fn(() => new Float32Array(256)),
   })),
-}
+};
 
-export default ToneMock
+export default ToneMock;

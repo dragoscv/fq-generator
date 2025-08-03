@@ -2,51 +2,51 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   experimental: {
-    optimizePackageImports: ['@radix-ui/react-icons'],
+    optimizePackageImports: ["@radix-ui/react-icons"],
   },
-  output: 'standalone',
+  output: "standalone",
   poweredByHeader: false,
   reactStrictMode: true,
-  
+
   // Exclude test files from build
-  pageExtensions: ['tsx', 'ts', 'jsx', 'js'],
-  
+  pageExtensions: ["tsx", "ts", "jsx", "js"],
+
   // Configure headers for HTTPS and security
   async headers() {
     return [
       {
-        source: '/(.*)',
+        source: "/(.*)",
         headers: [
           {
-            key: 'X-Frame-Options',
-            value: 'DENY',
+            key: "X-Frame-Options",
+            value: "DENY",
           },
           {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
+            key: "X-Content-Type-Options",
+            value: "nosniff",
           },
           {
-            key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin',
+            key: "Referrer-Policy",
+            value: "origin-when-cross-origin",
           },
           {
-            key: 'Cross-Origin-Embedder-Policy',
-            value: 'require-corp',
+            key: "Cross-Origin-Embedder-Policy",
+            value: "require-corp",
           },
           {
-            key: 'Cross-Origin-Opener-Policy', 
-            value: 'same-origin',
+            key: "Cross-Origin-Opener-Policy",
+            value: "same-origin",
           },
           // Enable SharedArrayBuffer for Web Audio API
           {
-            key: 'Cross-Origin-Resource-Policy',
-            value: 'cross-origin',
+            key: "Cross-Origin-Resource-Policy",
+            value: "cross-origin",
           },
         ],
       },
     ];
   },
-  
+
   // Webpack configuration for audio libraries
   webpack: (config, { isServer }) => {
     // Handle audio-related modules
@@ -58,7 +58,7 @@ const nextConfig: NextConfig = {
         path: false,
       };
     }
-    
+
     return config;
   },
 };

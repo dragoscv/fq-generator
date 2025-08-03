@@ -1,69 +1,71 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Audio Test</title>
     <script src="https://unpkg.com/tone@15.1.22/build/Tone.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Simple Audio Test</h1>
     <button onclick="testAudio()">Test Audio</button>
     <button onclick="stopAudio()">Stop Audio</button>
     <p id="status">Ready to test</p>
 
     <script>
-        let oscillator = null;
-        let gain = null;
+      let oscillator = null;
+      let gain = null;
 
-        async function testAudio() {
-            try {
-                document.getElementById('status').textContent = 'Starting audio test...';
-                
-                // Start Tone.js
-                await Tone.start();
-                console.log('Tone.js started');
-                
-                // Create oscillator
-                oscillator = new Tone.Oscillator({
-                    frequency: 440,
-                    type: 'sine'
-                });
-                
-                // Create gain
-                gain = new Tone.Gain(0.5);
-                
-                // Connect
-                oscillator.connect(gain);
-                gain.toDestination();
-                
-                // Start
-                oscillator.start();
-                
-                document.getElementById('status').textContent = 'Playing 440Hz sine wave at 50% volume';
-                console.log('Audio should be playing now');
-                
-            } catch (error) {
-                console.error('Audio test failed:', error);
-                document.getElementById('status').textContent = 'Error: ' + error.message;
-            }
-        }
+      async function testAudio() {
+        try {
+          document.getElementById("status").textContent =
+            "Starting audio test...";
 
-        async function stopAudio() {
-            try {
-                if (oscillator) {
-                    oscillator.stop();
-                    oscillator.dispose();
-                    oscillator = null;
-                }
-                if (gain) {
-                    gain.dispose();
-                    gain = null;
-                }
-                document.getElementById('status').textContent = 'Audio stopped';
-                console.log('Audio stopped');
-            } catch (error) {
-                console.error('Stop failed:', error);
-            }
+          // Start Tone.js
+          await Tone.start();
+          console.log("Tone.js started");
+
+          // Create oscillator
+          oscillator = new Tone.Oscillator({
+            frequency: 440,
+            type: "sine",
+          });
+
+          // Create gain
+          gain = new Tone.Gain(0.5);
+
+          // Connect
+          oscillator.connect(gain);
+          gain.toDestination();
+
+          // Start
+          oscillator.start();
+
+          document.getElementById("status").textContent =
+            "Playing 440Hz sine wave at 50% volume";
+          console.log("Audio should be playing now");
+        } catch (error) {
+          console.error("Audio test failed:", error);
+          document.getElementById("status").textContent =
+            "Error: " + error.message;
         }
+      }
+
+      async function stopAudio() {
+        try {
+          if (oscillator) {
+            oscillator.stop();
+            oscillator.dispose();
+            oscillator = null;
+          }
+          if (gain) {
+            gain.dispose();
+            gain = null;
+          }
+          document.getElementById("status").textContent = "Audio stopped";
+          console.log("Audio stopped");
+        } catch (error) {
+          console.error("Stop failed:", error);
+        }
+      }
     </script>
-</body>
+  </body>
 </html>

@@ -1,6 +1,6 @@
+import { FlatCompat } from "@eslint/eslintrc";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -14,13 +14,13 @@ const eslintConfig = [
   {
     ignores: [
       "**/*.test.ts",
-      "**/*.test.tsx", 
+      "**/*.test.tsx",
       "**/*.spec.ts",
       "**/*.spec.tsx",
       "src/test/**/*",
-      "**/__mocks__/**/*"
-    ]
-  }
+      "**/__mocks__/**/*",
+    ],
+  },
 ];
 
 export default eslintConfig;
