@@ -195,22 +195,16 @@ export const useAudioStore = create<AudioStore>((set, get) => ({
         state: oscillator.state,
       });
 
-      // Connect directly to destination - NO GAIN NODE FOR TESTING
-      console.log("🎵 Connecting to destination...");
-      oscillator.toDestination();
-
-      // Also create a gain node for manual control
-      const gain = new Tone.Gain(volume);
-      console.log("🎵 Gain node created:", {
-        gain: gain.gain.value,
-        input: gain.input,
-        output: gain.output,
-      });
-
       // Connect to analyzer if available
       if (state.analyserNode) {
         console.log("🎵 Connecting to analyzer...");
-        oscillator.connect(state.analyserNode as unknown as AudioNode);
+        // Connect oscillator through analyzer to destination
+        const toneAnalyser = state.analyserNode as unknown as Tone.Analyser;
+        oscillator.connect(toneAnalyser);
+        toneAnalyser.toDestination();
+      } else {
+        // Direct connection if no analyzer
+        oscillator.toDestination();
       }
 
       console.log("🎵 Starting oscillator...");
@@ -222,7 +216,7 @@ export const useAudioStore = create<AudioStore>((set, get) => ({
         isPlaying: true,
         toneOscillator: oscillator,
         oscillatorNode: oscillator as unknown as OscillatorNode,
-        gainNode: gain as unknown as GainNode,
+        gainNode: null, // No separate gain node in this setup
         audioSettings: {
           ...settings,
           frequency: { value: frequency, unit: "Hz" },

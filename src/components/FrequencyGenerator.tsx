@@ -162,9 +162,26 @@ const ProfessionalSpectrumAnalyzer: React.FC = () => {
 
       // Enhanced spectrum visualization
       if (analyserNode && isPlaying) {
-        const bufferLength = analyserNode.frequencyBinCount;
-        const dataArray = new Uint8Array(bufferLength);
-        analyserNode.getByteFrequencyData(dataArray);
+        // Handle both Tone.js and native AnalyserNode
+        let dataArray: Uint8Array;
+        let bufferLength: number;
+        
+        if ('getValue' in analyserNode) {
+          // Tone.js Analyser
+          const toneAnalyser = analyserNode as { getValue: () => Float32Array };
+          const values = toneAnalyser.getValue();
+          dataArray = new Uint8Array(values.length);
+          for (let i = 0; i < values.length; i++) {
+            // Convert Tone.js values (-1 to 1) to byte values (0-255)
+            dataArray[i] = Math.max(0, Math.min(255, (values[i] + 1) * 127.5));
+          }
+          bufferLength = values.length;
+        } else {
+          // Native AnalyserNode
+          bufferLength = (analyserNode as AnalyserNode).frequencyBinCount;
+          dataArray = new Uint8Array(new ArrayBuffer(bufferLength));
+          (analyserNode as AnalyserNode).getByteFrequencyData(dataArray);
+        }
 
         // Professional spectrum bars with glow effect
         const barWidth = (width / bufferLength) * 4;

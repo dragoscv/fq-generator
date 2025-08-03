@@ -1,7 +1,37 @@
 {
-  "name": "fq-generator",
-  "version": "0.1.0",
-  "private": true,
+  "name": "professional-frequency-generator",
+  "version": "1.0.0",
+  "description": "Professional-grade frequency generator and audio signal tester built with Next.js, React, and Web Audio API",
+  "author": {
+    "name": "Dragos",
+    "url": "https://github.com/dragoscv"
+  },
+  "license": "MIT",
+  "homepage": "https://fq-generator.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dragoscv/fq-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dragoscv/fq-generator/issues"
+  },
+  "keywords": [
+    "frequency-generator",
+    "tone-generator",
+    "audio-signal-generator",
+    "web-audio-api",
+    "sine-wave",
+    "square-wave",
+    "sawtooth-wave",
+    "triangle-wave",
+    "audio-testing",
+    "sound-calibration",
+    "nextjs",
+    "react",
+    "typescript",
+    "tailwindcss"
+  ],
+  "private": false,
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",

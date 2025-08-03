@@ -1,5 +1,5 @@
-import ProfessionalFrequencyGenerator from "@/components/FrequencyGenerator.professional";
+import FrequencyGenerator from "@/components/FrequencyGenerator";
 
 export default function Home() {
-  return <ProfessionalFrequencyGenerator />;
+  return <FrequencyGenerator />;
 }
